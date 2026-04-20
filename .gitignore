@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.env
+uploads/
+*.log
+.DS_Store
+.idea/
+.vscode/
+
+# Android
+*.iml
+.gradle/
+local.properties
+build/
+captures/
+.externalNativeBuild/
+.cxx/

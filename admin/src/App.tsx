@@ -1,0 +1,18 @@
+import { RouterProvider } from 'react-router-dom'
+import { ConfigProvider } from 'antd'
+import { router } from './router'
+
+export default function App() {
+  return (
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#1890ff',
+          borderRadius: 6,
+        },
+      }}
+    >
+      <RouterProvider router={router} />
+    </ConfigProvider>
+  )
+}
