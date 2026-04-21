@@ -4,16 +4,27 @@ import { User } from '../../users/entities/user.entity';
 import { UserRole } from '../../common/enums';
 
 async function seedAdmin() {
-  const dataSource = new DataSource({
-    type: 'postgres',
-    host: process.env.DB_HOST || 'localhost',
-    port: parseInt(process.env.DB_PORT || '5432'),
-    username: process.env.DB_USERNAME || 'healthcare_user',
-    password: process.env.DB_PASSWORD || 'healthcare_pass_2024',
-    database: process.env.DB_NAME || 'healthcare_db',
-    entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
-    synchronize: true,
-  });
+  const databaseUrl = process.env.DATABASE_URL;
+  const dataSource = new DataSource(
+    databaseUrl
+      ? {
+          type: 'postgres',
+          url: databaseUrl,
+          ssl: { rejectUnauthorized: false },
+          entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
+          synchronize: true,
+        }
+      : {
+          type: 'postgres',
+          host: process.env.DB_HOST || 'localhost',
+          port: parseInt(process.env.DB_PORT || '5432'),
+          username: process.env.DB_USERNAME || 'healthcare_user',
+          password: process.env.DB_PASSWORD || 'healthcare_pass_2024',
+          database: process.env.DB_NAME || 'healthcare_db',
+          entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
+          synchronize: true,
+        },
+  );
 
   await dataSource.initialize();
   console.log('Database connected...');
