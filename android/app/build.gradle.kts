@@ -29,7 +29,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "\"https://your-production-api.com/api/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.healthsuite.in/api/\"")
         }
     }
 
