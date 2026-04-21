@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Tabs, Table, Select, DatePicker, Space, Tag, Button, Typography, Row, Col, message } from 'antd'
+import { Tabs, Table, Select, DatePicker, Tag, Button, Typography, Row, Col, message } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import { getUploads, getConsultations, getMedicalRecords } from '../../api/reports.api'
