@@ -46,9 +46,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.res.painterResource
+import com.healthcare.app.R
 import com.healthcare.app.ui.auth.branding.BookManageCareTagline
 import com.healthcare.app.ui.auth.branding.GlossyFeatureRow
-import com.healthcare.app.ui.auth.branding.HealthCareHeroCluster
 import com.healthcare.app.ui.auth.branding.SplashBrandedBackground
 
 private val FieldColors @Composable get() = OutlinedTextFieldDefaults.colors(
@@ -97,7 +100,11 @@ fun LoginScreen(
                 .padding(horizontal = 22.dp, vertical = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            HealthCareHeroCluster(compact = true)
+            Image(
+                painter = painterResource(id = R.drawable.login_logo),
+                contentDescription = "HealthSuite Logo",
+                modifier = Modifier.size(160.dp),
+            )
             Spacer(modifier = Modifier.height(14.dp))
             BookManageCareTagline()
             Spacer(modifier = Modifier.height(28.dp))

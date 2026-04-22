@@ -1,5 +1,6 @@
 package com.healthcare.app.ui.auth
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,15 +21,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.healthcare.app.R
 import com.healthcare.app.ui.auth.branding.BookManageCareTagline
 import com.healthcare.app.ui.auth.branding.GlossyFeatureRow
-import com.healthcare.app.ui.auth.branding.HealthCareHeroCluster
 import com.healthcare.app.ui.auth.branding.SplashBrandedBackground
-import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.delay
 
 @Composable
@@ -69,7 +72,11 @@ fun SplashScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                HealthCareHeroCluster()
+                Image(
+                    painter = painterResource(id = R.drawable.splash_logo),
+                    contentDescription = "HealthSuite Logo",
+                    modifier = Modifier.size(200.dp),
+                )
                 Spacer(modifier = Modifier.height(20.dp))
                 BookManageCareTagline()
             }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="216dp"
+    android:viewportWidth="400"
+    android:viewportHeight="360">
+
+    <!-- Shield body -->
+    <path
+        android:pathData="M200,40 L256,61 Q270,66 270,81 L270,151 Q270,193 200,220 Q130,193 130,151 L130,81 Q130,66 144,61 Z"
+        android:fillColor="#7C3AED"
+        android:strokeColor="#7C3AED"
+        android:strokeWidth="1"/>
+
+    <!-- Inner shield outline -->
+    <path
+        android:pathData="M200,49 L249,68 Q259,72 259,85 L259,145 Q259,182 200,207 Q141,182 141,145 L141,85 Q141,72 151,68 Z"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#A78BFA"
+        android:strokeWidth="0.4"
+        android:strokeAlpha="0.6"/>
+
+    <!-- Heart shape -->
+    <path
+        android:pathData="M200,100 C192,100 174,103 174,114 C174,132 200,151 200,151 C200,151 226,132 226,114 C226,103 208,100 200,100Z"
+        android:fillColor="#C4B5FD"
+        android:fillAlpha="0.3"/>
+
+    <!-- Heart outline -->
+    <path
+        android:pathData="M200,104 C193,104 178,106 178,116 C178,131 200,148 200,148 C200,148 222,131 222,116 C222,106 207,104 200,104Z"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#EDE9FE"
+        android:strokeWidth="1"/>
+
+    <!-- ECG pulse line -->
+    <path
+        android:pathData="M179,120 L190,120 L194,110 L200,133 L206,113 L210,120 L221,120"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#F5F3FF"
+        android:strokeWidth="1.4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+</vector>

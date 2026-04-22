@@ -18,7 +18,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.ExperimentalMaterial3Api
+import com.healthcare.app.R
 import com.healthcare.app.ui.auth.branding.SplashBrandedBackground
 import com.healthcare.app.ui.common.AppTopBar
 import com.healthcare.app.ui.common.LargeButton
@@ -94,6 +98,14 @@ fun RegisterScreen(
                     .padding(24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Image(
+                    painter = painterResource(id = R.drawable.login_logo),
+                    contentDescription = "HealthSuite Logo",
+                    modifier = Modifier.size(120.dp),
+                )
+
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
