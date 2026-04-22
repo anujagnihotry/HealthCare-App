@@ -57,19 +57,30 @@ export class AppointmentsService {
     let daysFound = 0;
     const targetDays = BOOKING_WINDOW_DAYS;
 
+    const nowHHMM =
+      String(today.getHours()).padStart(2, '0') +
+      ':' +
+      String(today.getMinutes()).padStart(2, '0');
+    const todayStr = today.toISOString().split('T')[0];
+
     while (
       daysFound < targetDays &&
       daysChecked < MAX_EXTENDED_WINDOW_DAYS
     ) {
       const checkDate = new Date(today);
-      checkDate.setDate(today.getDate() + daysChecked + 1);
+      checkDate.setDate(today.getDate() + daysChecked);
       const dateStr = checkDate.toISOString().split('T')[0];
 
-      const slots = await this.doctorsService.getAvailableSlots(
+      let slots = await this.doctorsService.getAvailableSlots(
         doctorId,
         locationId,
         dateStr,
       );
+
+      // For today, filter out slots whose time has already passed
+      if (dateStr === todayStr) {
+        slots = slots.filter((s) => toSlotTimeKey(s.time) > nowHHMM);
+      }
 
       if (slots.length > 0) {
         // Check which slots are already booked
