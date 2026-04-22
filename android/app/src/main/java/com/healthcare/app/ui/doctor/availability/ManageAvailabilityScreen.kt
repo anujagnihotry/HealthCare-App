@@ -84,15 +84,26 @@ fun ManageAvailabilityScreen(
     val state by viewModel.state.collectAsState()
     var showAddDialog by remember { mutableStateOf(false) }
 
-    if (showAddDialog && state.locations.isNotEmpty()) {
-        AddAvailabilityDialog(
-            locations = state.locations,
-            onDismiss = { showAddDialog = false },
-            onAdd = { locId, day, session, start, end, dur ->
-                viewModel.addAvailability(locId, day, session, start, end, dur)
-                showAddDialog = false
-            },
-        )
+    if (showAddDialog) {
+        if (state.locations.isEmpty()) {
+            AlertDialog(
+                onDismissRequest = { showAddDialog = false },
+                title = { Text("No Location Added") },
+                text = { Text("Please add a clinic or practice location first before adding availability sessions.") },
+                confirmButton = {
+                    TextButton(onClick = { showAddDialog = false }) { Text("OK") }
+                },
+            )
+        } else {
+            AddAvailabilityDialog(
+                locations = state.locations,
+                onDismiss = { showAddDialog = false },
+                onAdd = { locId, day, session, start, end, dur ->
+                    viewModel.addAvailability(locId, day, session, start, end, dur)
+                    showAddDialog = false
+                },
+            )
+        }
     }
 
     Scaffold(
