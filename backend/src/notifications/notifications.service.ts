@@ -139,8 +139,8 @@ export class NotificationsService implements OnModuleInit {
 
       // ── 1-hour reminder with navigation + token info ──
       if (slotMinutes >= oneHourWindowStart && slotMinutes < oneHourWindowEnd) {
-        const currentToken = (apt as any).token?.currentTokenNumber ?? null;
-        const patientToken = apt.tokenNumber;
+        const currentToken = null; // updated in real-time via sendTokenUpdate
+        const patientToken = apt.token?.tokenNumber ?? null;
 
         let body = `Your appointment with Dr. ${doctorName} at ${locationName} is at ${formattedTime} — 1 hour away.`;
         if (currentToken != null && patientToken) {
